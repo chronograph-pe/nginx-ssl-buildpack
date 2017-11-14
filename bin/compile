@@ -28,13 +28,13 @@ status "Downloading $pcre_tarball_url"
 cd nginx-${NGINX_VERSION} && curl -L $pcre_tarball_url | tar xvj
 
 status "Downloading $ngx_postgres_url"
-cd nginx-${NGINX_VERSION} && curl -L $ngx_postgres_url | tar xvj
+curl -L $ngx_postgres_url | tar xvj
 
 status "Downloading $rds_json_url"
-cd nginx-${NGINX_VERSION} && curl -L $rds_json_url | tar xvj
+curl -L $rds_json_url | tar xvj
 
 status "Downloading $ngx_devel_kit_url"
-cd nginx-${NGINX_VERSION} && curl -L $ngx_devel_kit_url | tar xvj
+curl -L $ngx_devel_kit_url | tar xvj
 
 status "Compiling nginx"
 ./configure \
