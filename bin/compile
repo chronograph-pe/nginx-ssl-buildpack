@@ -13,6 +13,9 @@ PCRE_VERSION=8.41
 
 nginx_tarball_url=http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
 pcre_tarball_url=https://ftp.pcre.org/pub/pcre/pcre-${PCRE_VERSION}.tar.bz2
+rds_json_url=https://github.com/openresty/rds-json-nginx-module/archive/v0.15.tar.gz
+ngx_postgres_url=https://github.com/FRiCKLE/ngx_postgres/archive/1.0rc7.tar.gz
+ngx_devel_kit_url=https://github.com/simpl/ngx_devel_kit/archive/v0.3.0.tar.gz
 
 build_dir=$1
 cache_dir=$2
@@ -24,12 +27,24 @@ curl -L $nginx_tarball_url | tar xzv
 status "Downloading $pcre_tarball_url"
 cd nginx-${NGINX_VERSION} && curl -L $pcre_tarball_url | tar xvj
 
+status "Downloading $ngx_postgres_url"
+cd nginx-${NGINX_VERSION} && curl -L $ngx_postgres_url | tar xvj
+
+status "Downloading $rds_json_url"
+cd nginx-${NGINX_VERSION} && curl -L $rds_json_url | tar xvj
+
+status "Downloading $ngx_devel_kit_url"
+cd nginx-${NGINX_VERSION} && curl -L $ngx_devel_kit_url | tar xvj
+
 status "Compiling nginx"
 ./configure \
   --with-pcre=pcre-${PCRE_VERSION} \
   --prefix=/app/nginx \
   --with-http_ssl_module \
-  --with-http_stub_status_module
+  --with-http_stub_status_module \
+  --add-module=ngx_postgres-1.0rc7 \
+  --add-module=rds-json-nginx-module-0.15 \
+  --add-module=ngx_devel_kit-0.3.0
 
 status "Installing nginx"
 make install --silent
