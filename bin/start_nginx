@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
-
+echo 'buildpack=nginx at=entering'
 psmgr=/tmp/nginx-buildpack-wait
 rm -f $psmgr
 mkfifo $psmgr
 
+echo 'buildpack=nginx at=erb'
 #Evaluate config to get $PORT
 erb config/nginx.conf.erb > config/nginx.conf
 
+echo 'buildpack=nginx at=options'
 n=1
 while getopts :f option ${@:1:2}
 do
@@ -15,6 +17,8 @@ do
                 f) FORCE=$OPTIND; n=$((n+1));;
         esac
 done
+
+echo 'buildpack=nginx at=logs'
 
 #Initialize log directory.
 mkdir -p logs/nginx
