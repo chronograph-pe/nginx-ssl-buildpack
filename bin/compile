@@ -58,3 +58,4 @@ echo 'PATH=$PATH:$HOME/nginx/sbin' > $build_dir/.profile.d/nginx_path.sh
 
 cd ..
 cp bin/start-nginx "$build_dir/bin/"
+cp config/mime.types "$build_dir/config/"
