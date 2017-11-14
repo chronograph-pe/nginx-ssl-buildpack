@@ -14,7 +14,7 @@ PCRE_VERSION=8.41
 nginx_tarball_url=http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
 pcre_tarball_url=https://ftp.pcre.org/pub/pcre/pcre-${PCRE_VERSION}.tar.bz2
 rds_json_url=https://github.com/openresty/rds-json-nginx-module/archive/v0.15.tar.gz
-ngx_postgres_url=https://github.com/FRiCKLE/ngx_postgres/archive/1.0rc7.tar.gz
+ngx_postgres_url=https://github.com/openresty/ngx_postgres/archive/1.0.tar.gz
 ngx_devel_kit_url=https://github.com/simpl/ngx_devel_kit/archive/v0.3.0.tar.gz
 
 build_dir=$1
