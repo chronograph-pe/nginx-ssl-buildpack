@@ -42,7 +42,7 @@ status "Compiling nginx"
   --prefix=/app/nginx \
   --with-http_ssl_module \
   --with-http_stub_status_module \
-  --add-module=ngx_postgres-1.0rc7 \
+  --add-module=ngx_postgres-1.0 \
   --add-module=rds-json-nginx-module-0.15 \
   --add-module=ngx_devel_kit-0.3.0
 
