@@ -51,7 +51,7 @@ status "Installing nginx"
 make install --silent
 
 # Copy the installation where it'll persist
-mv /app/nginx $build_dir/nginx
+cp /app/nginx $build_dir/nginx
 
 # Add to PATH
 mkdir -p $build_dir/.profile.d
