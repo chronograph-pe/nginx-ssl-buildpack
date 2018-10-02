@@ -51,7 +51,7 @@ status "Installing nginx"
 make install --silent
 
 # Copy the installation where it'll persist
-if [ "$build_dir" == "/app/nginx" ]; then
+if [ "$build_dir" == "/app" ]; then
   status "YOU MUST BE TESTING"
 else
   status "WTF IS THIS $build_dir"
