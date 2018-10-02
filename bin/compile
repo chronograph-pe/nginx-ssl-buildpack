@@ -51,7 +51,12 @@ status "Installing nginx"
 make install --silent
 
 # Copy the installation where it'll persist
-mv /app/nginx $build_dir/nginx
+if [ "$build_dir" == "/app/nginx" ]; then
+  status "YOU MUST BE TESTING"
+else
+  status "WTF IS THIS $build_dir"
+  mv /app/nginx $build_dir/nginx
+fi
 
 # Add to PATH
 mkdir -p $build_dir/.profile.d
